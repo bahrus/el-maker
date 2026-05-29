@@ -16,5 +16,16 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test"
+  },
+  "dependencies": {
+    "be-reflective": "0.0.3",
+    "face-up": "0.0.4",
+    "truth-sourcer": "0.0.3",
+    "roundabout": "0.2.0",
+    "time-ticker": "0.0.31"
+  },
+  "devDependencies": {
+    "spa-ssi": "0.0.27",
+    "@playwright/test": "1.59.1"
   }
 }
