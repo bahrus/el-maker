@@ -1,20 +1,90 @@
 # element-maker
 
-This package provides a custom element base "abstract" class that defines default implementations of the major features that can optionally be leveraged in order to build a fully functioning custom element, that inherits from this base class.
+An abstract custom element base class (`ElementMaker`) that bundles a catalog of composable features behind async lazy-loading. Concrete elements are defined declaratively — picking which features to activate and providing per-element configuration — without writing any JavaScript class code.
 
-The current catalog of features that are included are provided below
+## How It Works
 
+`ElementMaker` extends `HTMLElement` and declares `static supportedFeatures` with async `fallbackSpawn` functions for each feature. Feature implementations are only imported when a derived element actually uses them, so unused features add zero overhead.
+
+Concrete elements are created via [`defineWithFeatures`](https://github.com/bahrus/assign-gingerly/blob/baseline/docs/defineWithFeatures.md), which:
+
+1. Waits for the base class to be defined
+2. Resolves async fallback spawns in parallel (cached per base class)
+3. Creates a subclass dynamically
+4. Calls `assignFeatures` with the resolved spawns + JSON config
+5. Registers the element
+
+This enables fully declarative element definition from JSON — including from [mount-observer cede scripts](https://github.com/bahrus/mount-observer#custom-element-definition-cede-scripts) embedded in HTML.
+
+## Usage
+
+### From JavaScript
+
+```js
+import { defineWithFeatures } from 'assign-gingerly/defineWithFeatures.js';
+
+await defineWithFeatures('time-ticker', 'el-maker', {
+    assignFeatures: {
+        roundabout: {
+            customData: { raConfig: { actions: {...}, compacts: {...} } },
+            withAttrs: { base: 'tt', duration: '${base}-duration', _duration: { instanceOf: 'Number' } },
+            callbackForwarding: ['connectedCallback']
+        },
+        truthSourcer: {
+            callbackForwarding: ['connectedCallback', 'attributeChangedCallback']
+        },
+        faceUp: {
+            customData: { integrateWithRoundabout: true },
+            callbackForwarding: ['connectedCallback', 'formDisabledCallback', 'formResetCallback', 'formStateRestoreCallback']
+        }
+    }
+});
+```
+
+### From a cede script in HTML
+
+```html
+<time-ticker>
+    <script type="cede" data-extends="el-maker">{
+        "assignFeatures": {
+            "roundabout": {
+                "customData": { "raConfig": { ... } },
+                "withAttrs": { "base": "tt", "duration": "${base}-duration" },
+                "callbackForwarding": ["connectedCallback"]
+            },
+            "truthSourcer": {
+                "callbackForwarding": ["connectedCallback", "attributeChangedCallback"]
+            }
+        }
+    }</script>
+</time-ticker>
+```
+
+## What the Base Class Provides
+
+`ElementMaker` sets up shared infrastructure that features depend on:
+
+| Resource | Purpose |
+|----------|---------|
+| `propagator` (EventTarget) | Property change event bus — used by truthSourcer and reflector to observe value changes |
+| `#internals` (ElementInternals) | Shared via `getSharedContext` with faceUp (form control), reflector (custom states), and roundabout |
+| `static featuresConfig` | Installs `whenFeatureReady()` for awaiting async feature resolution |
+
+Because all spawns are async, defining 10 elements that extend `el-maker` only imports each feature module once — results are cached per base class.
+
+## Feature Catalog
 
 | Package | Description | Source |
 |---------|-------------|--------|
 | [truth-sourcer](https://www.npmjs.com/package/truth-sourcer) | Attribute/property binding and truth-sourcing for custom elements | [GitHub](https://github.com/bahrus/truth-sourcer) |
 | [be-reflective](https://www.npmjs.com/package/be-reflective) | CSS custom state reflection from computed styles | [GitHub](https://github.com/bahrus/be-reflective) |
 | [face-up](https://www.npmjs.com/package/face-up) | Form Associated Custom Element behavior via ElementInternals | [GitHub](https://github.com/bahrus/face-up) |
-| [roundabout](https://www.npmjs.com/package/roundabout) | Reactive view-model binding with template rendering and computed property orchestration | [GitHub](https://github.com/bahrus/roundabout#using-roundaboutfeature-with-assignfeatures) |
-| [time-ticker](https://www.npmjs.com/package/time-ticker) | Web component that fires events periodically (example of a feature-based component with no code in the class) | [GitHub](https://github.com/bahrus/time-ticker) |
+| [roundabout-lib](https://www.npmjs.com/package/roundabout-lib) | Reactive view-model binding with template rendering and computed property orchestration | [GitHub](https://github.com/bahrus/roundabout-lib) |
 | [templ-maker](https://www.npmjs.com/package/templ-maker) | Extracts a DOM fragment into a reusable template and clones it per instance (works with cede scripts) | [GitHub](https://github.com/bahrus/templ-maker) |
 
+### Example: time-ticker
 
+[time-ticker](https://github.com/bahrus/time-ticker) demonstrates a fully feature-based component with no code in the element class itself — all behavior comes from the `roundabout` and `timeTicker` features wired via `assignFeatures`.
 
 ## Viewing Demos Locally
 
