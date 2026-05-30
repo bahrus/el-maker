@@ -13,7 +13,7 @@
   "license": "MIT",
   "author": "Bruce B. Anderson <anderson.bruce.b@gmail.com>",
   "type": "module",
-  "main": "index.js",
+  "main": "ElementMaker.js",
   "scripts": {
     "build": "node emc.mjs > emc.json && node ⏻.mjs > ⏻.json",
     "serve": "node ./node_modules/spa-ssi/serve.js",
@@ -24,8 +24,9 @@
   "dependencies": {
     "be-reflective": "0.0.3",
     "face-up": "0.0.4",
+    "roundabout-lib": "0.0.20",
+    "templ-maker": "0.0.1",
     "truth-sourcer": "0.0.3",
-    "roundabout": "0.2.0",
     "time-ticker": "0.0.31"
   },
   "devDependencies": {
