@@ -1,6 +1,7 @@
 // @ts-check
 /** @import {SupportedFeaturesMap} from './types/assign-gingerly/types' */
 
+
 /**
  * ElementMaker — Abstract base custom element class that declares support
  * for a catalog of composable features via `static supportedFeatures`.
@@ -28,6 +29,7 @@ export class ElementMaker extends HTMLElement {
             fallbackSpawn: () => import('roundabout-lib/roundaboutFeature.js')
                 .then(m => m.RoundaboutFeature),
             callbackForwarding: ['connectedCallback'],
+            /** @param {ElementMaker} instance */
             getSharedContext(instance) {
                 return {
                     internals: instance.#internals,
@@ -39,6 +41,7 @@ export class ElementMaker extends HTMLElement {
             fallbackSpawn: () => import('truth-sourcer/TruthSourcer.js')
                 .then(m => m.TruthSourcer),
             callbackForwarding: ['connectedCallback', 'attributeChangedCallback'],
+            /** @param {ElementMaker} instance */
             getSharedContext(instance) {
                 return {
                     hostPropagator: instance.propagator,
@@ -55,6 +58,7 @@ export class ElementMaker extends HTMLElement {
                 'formResetCallback',
                 'formStateRestoreCallback',
             ],
+            /** @param {ElementMaker} instance */
             getSharedContext(instance) {
                 return {
                     internals: instance.#internals,
@@ -65,6 +69,7 @@ export class ElementMaker extends HTMLElement {
             fallbackSpawn: () => import('be-reflective/ReflectorLazy.js')
                 .then(m => m.ReflectorLazy),
             callbackForwarding: ['connectedCallback', 'disconnectedCallback'],
+            /** @param {ElementMaker} instance */
             getSharedContext(instance) {
                 return {
                     internals: instance.#internals,
