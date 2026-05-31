@@ -22,6 +22,7 @@
     "update": "ncu -u && npm install"
   },
   "dependencies": {
+    "assign-gingerly": "0.0.51",
     "be-reflective": "0.0.3",
     "face-up": "0.0.4",
     "roundabout-lib": "0.0.20",

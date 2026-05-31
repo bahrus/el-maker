@@ -62,21 +62,17 @@ Key points:
 
 ### Step 3: Simplify `wireFeatures.js`
 
-The current `wireFeatures.js` eagerly imports all feature classes (RoundaboutFeature, TruthSourcer, FaceUp) and passes them as explicit `spawn` values. Since `ElementMaker` already declares async `fallbackSpawn` for all of those, you only need to provide:
-
-- The `timeTicker` spawn (unique to this package)
-- The `roundabout` config (`customData`, `withAttrs`) that comes from the cef.json
-- Any `callbackForwarding` or `customData` overrides specific to this element
+The current `wireFeatures.js` eagerly imports all feature classes (RoundaboutFeature, TruthSourcer, FaceUp) and passes them as explicit `spawn` values. Since `ElementMaker` already declares async `fallbackSpawn` for all of those, use `resolveAndAssignFeatures` which automatically resolves the fallback spawns for any feature that doesn't have an explicit `spawn`:
 
 ```js
 import { TimeTicker } from './TimeTicker.js';
-import 'assign-gingerly/assignFeatures.js';
+import { resolveAndAssignFeatures } from 'assign-gingerly/resolveAndAssignFeatures.js';
 
 export async function wireFeatures(ElementClass, cfg) {
     const { roundabout } = cfg.features;
     const { customData, withAttrs } = roundabout;
 
-    await customElements.assignFeatures(ElementClass, {
+    await resolveAndAssignFeatures(ElementClass, {
         timeTicker: { spawn: TimeTicker },
         truthSourcer: {
             callbackForwarding: ['connectedCallback', 'attributeChangedCallback'],
@@ -98,9 +94,11 @@ export async function wireFeatures(ElementClass, cfg) {
 ```
 
 Key changes:
-- Removed all explicit `spawn` entries for `truthSourcer`, `faceUp`, and `roundabout` — the async `fallbackSpawn` from `ElementMaker.supportedFeatures` will be used instead
-- Removed the eager imports of `RoundaboutFeature`, `TruthSourcer`, and `FaceUp` — they'll be lazy-loaded on first access
+- Replaced `import 'assign-gingerly/assignFeatures.js'` + `customElements.assignFeatures(...)` with `resolveAndAssignFeatures` — it resolves async `fallbackSpawn` from `ElementMaker.supportedFeatures` in parallel, then calls `assignFeatures` internally
+- Removed all explicit `spawn` entries for `truthSourcer`, `faceUp`, and `roundabout` — `resolveAndAssignFeatures` resolves them from the inherited `fallbackSpawn` automatically
+- Removed the eager imports of `RoundaboutFeature`, `TruthSourcer`, and `FaceUp` — they'll be resolved from the async fallback spawns
 - Still pass `callbackForwarding` and `customData` since those are per-element configuration (the consumer additions get unioned with the author defaults from `supportedFeatures`)
+- `timeTicker` still has an explicit `spawn: TimeTicker` since it's a local feature with no fallback on the base class
 
 ### Step 4: `def.js` stays the same
 
