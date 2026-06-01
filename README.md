@@ -86,6 +86,12 @@ Because all spawns are async, defining 10 elements that extend `el-maker` only i
 
 [time-ticker](https://github.com/bahrus/time-ticker) demonstrates a fully feature-based component with no code in the element class itself — all behavior comes from the `roundabout` and `timeTicker` features wired via `assignFeatures`.
 
+## Elements Extending ElementMaker
+
+| Package | Description | Source |
+|---------|-------------|--------|
+| [time-ticker](https://www.npmjs.com/package/time-ticker) | Web component that fires events periodically | [GitHub](https://github.com/bahrus/time-ticker) |
+
 ## Viewing Demos Locally
 
 1. Install git
