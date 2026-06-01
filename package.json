@@ -27,8 +27,7 @@
     "face-up": "0.0.4",
     "roundabout-lib": "0.0.20",
     "templ-maker": "0.0.2",
-    "truth-sourcer": "0.0.3",
-    "time-ticker": "0.0.32"
+    "truth-sourcer": "0.0.3"
   },
   "devDependencies": {
     "spa-ssi": "0.0.27",
