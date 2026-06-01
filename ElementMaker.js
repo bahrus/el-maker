@@ -1,7 +1,6 @@
 // @ts-check
 /** @import {SupportedFeaturesMap} from './types/assign-gingerly/types' */
 
-
 /**
  * ElementMaker — Abstract base custom element class that declares support
  * for a catalog of composable features via `static supportedFeatures`.
