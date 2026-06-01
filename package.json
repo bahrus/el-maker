@@ -26,9 +26,9 @@
     "be-reflective": "0.0.3",
     "face-up": "0.0.4",
     "roundabout-lib": "0.0.20",
-    "templ-maker": "0.0.1",
+    "templ-maker": "0.0.2",
     "truth-sourcer": "0.0.3",
-    "time-ticker": "0.0.31"
+    "time-ticker": "0.0.32"
   },
   "devDependencies": {
     "spa-ssi": "0.0.27",
