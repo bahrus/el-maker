@@ -22,15 +22,15 @@
     "update": "ncu -u && npm install"
   },
   "dependencies": {
-    "assign-gingerly": "0.0.51",
-    "be-reflective": "0.0.3",
-    "face-up": "0.0.4",
-    "roundabout-lib": "0.0.20",
+    "assign-gingerly": "0.0.71",
+    "be-reflective": "0.0.4",
+    "face-up": "0.0.5",
+    "roundabout-lib": "0.0.29",
     "templ-maker": "0.0.2",
     "truth-sourcer": "0.0.3"
   },
   "devDependencies": {
     "spa-ssi": "0.0.27",
-    "@playwright/test": "1.60.0"
+    "@playwright/test": "1.62.1"
   }
 }
