@@ -24,8 +24,8 @@
   "dependencies": {
     "assign-gingerly": "0.0.71",
     "be-reflective": "0.0.4",
-    "face-up": "0.0.5",
-    "roundabout-lib": "0.0.29",
+    "face-up": "0.0.6",
+    "roundabout-lib": "0.0.30",
     "templ-maker": "0.0.2",
     "truth-sourcer": "0.0.3"
   },
