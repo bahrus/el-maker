@@ -13,7 +13,12 @@
   "license": "MIT",
   "author": "Bruce B. Anderson <anderson.bruce.b@gmail.com>",
   "type": "module",
-  "main": "ElementMaker.js",
+  "main": "def.js",
+  "exports": {
+    ".": "./def.js",
+    "./def.js": "./def.js",
+    "./ElementMaker.js": "./ElementMaker.js"
+  },
   "scripts": {
     "build": "node emc.mjs > emc.json && node ⏻.mjs > ⏻.json",
     "serve": "node ./node_modules/spa-ssi/serve.js",
