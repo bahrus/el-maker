@@ -64,6 +64,11 @@ export class ElementMaker extends HTMLElement {
                 };
             },
         },
+        fontMgr: {
+            fallbackSpawn: () => import('font-face-feature/FontFaceFeature.js')
+                .then(m => m.FontFaceFeature),
+            callbackForwarding: ['connectedCallback'],
+        },
         reflector: {
             fallbackSpawn: () => import('be-reflective/ReflectorLazy.js')
                 .then(m => m.ReflectorLazy),
