@@ -27,13 +27,13 @@
     "update": "ncu -u && npm install"
   },
   "dependencies": {
-    "assign-gingerly": "0.0.73",
+    "assign-gingerly": "0.0.75",
     "be-reflective": "0.0.4",
-    "face-up": "0.0.6",
-    "font-face-feature": "0.0.4",
+    "face-up": "0.0.7",
+    "font-face-feature": "0.0.6",
     "roundabout-lib": "0.0.30",
-    "templ-maker": "0.0.2",
-    "truth-sourcer": "0.0.3"
+    "templ-maker": "0.0.3",
+    "truth-sourcer": "0.0.4"
   },
   "devDependencies": {
     "spa-ssi": "0.0.27",
