@@ -4,3 +4,6 @@
 [submodule "face-up"]
 	path = face-up
 	url = https://github.com/bahrus/face-up.git
+[submodule "be-reflective"]
+	path = be-reflective
+	url = https://github.com/bahrus/be-reflective.git
