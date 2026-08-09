@@ -7,3 +7,6 @@
 [submodule "be-reflective"]
 	path = be-reflective
 	url = https://github.com/bahrus/be-reflective.git
+[submodule "truth-sourcer"]
+	path = truth-sourcer
+	url = https://github.com/bahrus/truth-sourcer.git
