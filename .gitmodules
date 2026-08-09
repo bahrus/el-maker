@@ -10,3 +10,6 @@
 [submodule "truth-sourcer"]
 	path = truth-sourcer
 	url = https://github.com/bahrus/truth-sourcer.git
+[submodule "font-face-feature"]
+	path = font-face-feature
+	url = https://github.com/bahrus/font-face-feature.git
