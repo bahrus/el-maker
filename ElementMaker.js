@@ -65,7 +65,7 @@ export class ElementMaker extends HTMLElement {
             },
         },
         fontMgr: {
-            fallbackSpawn: () => import('font-face-feature/FontFaceFeature.js')
+            fallbackSpawn: () => import('./font-face-feature/FontFaceFeature.js')
                 .then(m => m.FontFaceFeature),
             callbackForwarding: ['connectedCallback'],
         },

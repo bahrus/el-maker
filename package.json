@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "assign-gingerly": "0.0.75",
-    "font-face-feature": "0.0.6",
     "roundabout-lib": "0.0.30",
     "templ-maker": "0.0.3"
   },
