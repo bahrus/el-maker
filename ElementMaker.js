@@ -37,7 +37,7 @@ export class ElementMaker extends HTMLElement {
             },
         },
         truthSourcer: {
-            fallbackSpawn: () => import('truth-sourcer/TruthSourcer.js')
+            fallbackSpawn: () => import('./truth-sourcer/TruthSourcer.js')
                 .then(m => m.TruthSourcer),
             callbackForwarding: ['connectedCallback', 'attributeChangedCallback'],
             /** @param {ElementMaker} instance */
@@ -48,7 +48,7 @@ export class ElementMaker extends HTMLElement {
             },
         },
         faceUp: {
-            fallbackSpawn: () => import('face-up/FaceUp.js')
+            fallbackSpawn: () => import('./face-up/FaceUp.js')
                 .then(m => m.FaceUp),
             callbackForwarding: [
                 'connectedCallback',
@@ -70,7 +70,7 @@ export class ElementMaker extends HTMLElement {
             callbackForwarding: ['connectedCallback'],
         },
         reflector: {
-            fallbackSpawn: () => import('be-reflective/ReflectorLazy.js')
+            fallbackSpawn: () => import('./be-reflective/ReflectorLazy.js')
                 .then(m => m.ReflectorLazy),
             callbackForwarding: ['connectedCallback', 'disconnectedCallback'],
             /** @param {ElementMaker} instance */
