@@ -13,3 +13,6 @@
 [submodule "font-face-feature"]
 	path = font-face-feature
 	url = https://github.com/bahrus/font-face-feature.git
+[submodule "templ-maker"]
+	path = templ-maker
+	url = https://github.com/bahrus/templ-maker.git
