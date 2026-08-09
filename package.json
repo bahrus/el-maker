@@ -28,8 +28,7 @@
   },
   "dependencies": {
     "assign-gingerly": "0.0.75",
-    "roundabout-lib": "0.0.30",
-    "templ-maker": "0.0.3"
+    "roundabout-lib": "0.0.30"
   },
   "devDependencies": {
     "spa-ssi": "0.0.27",

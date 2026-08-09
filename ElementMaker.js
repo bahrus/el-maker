@@ -82,7 +82,7 @@ export class ElementMaker extends HTMLElement {
             },
         },
         templateMaker: {
-            fallbackSpawn: () => import('templ-maker/TemplateMaker.js')
+            fallbackSpawn: () => import('./templ-maker/TemplateMaker.js')
                 .then(m => m.TemplateMaker),
             callbackForwarding: ['connectedCallback'],
         },
