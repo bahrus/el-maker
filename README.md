@@ -1,4 +1,4 @@
-# element-maker
+# el-maker
 
 An abstract custom element base class (`ElementMaker`) that bundles a catalog of composable features behind async lazy-loading. Concrete elements are defined declaratively — picking which features to activate and providing per-element configuration — without writing any JavaScript class code.
 
