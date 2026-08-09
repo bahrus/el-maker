@@ -1,3 +1,6 @@
 [submodule "types"]
 	path = types
 	url = https://github.com/bahrus/types.git
+[submodule "face-up"]
+	path = face-up
+	url = https://github.com/bahrus/face-up.git
