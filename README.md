@@ -85,13 +85,18 @@ Because all spawns are async, defining 10 elements that extend `el-maker` only i
 
 ### Example: time-ticker
 
-[time-ticker](https://github.com/bahrus/time-ticker) demonstrates a fully feature-based component with no code in the element class itself — all behavior comes from the `roundabout` and `timeTicker` features wired via `assignFeatures`.
+[time-ticker](https://github.com/bahrus/time-ticker) demonstrates a non-visual feature-based web component with no code in the element class itself — all behavior comes from the `roundabout` and `timeTicker` features wired via `assignFeatures`.
+
+### Example:  scratch-box
+
+[scratch-box](https://github.com/bahrus/scratch-box) is a full-blown visual web component, with a static HTML definition for instant SSR display, and JSON definition that makes use of all the features provided br *el-maker*.  Once again, no JS code, only HTML/JSON.  It also demonstrates a viable SSR solution, where users can instantly start selecting values with a decent UI, and the selections transfer to the web component during hydration.
 
 ## Elements Extending ElementMaker
 
 | Package | Description | Source |
 |---------|-------------|--------|
 | [time-ticker](https://www.npmjs.com/package/time-ticker) | Web component that fires events periodically | [GitHub](https://github.com/bahrus/time-ticker) |
+| [scratch-box](https://www.npmjs.com/package/scratch-box) | scratch-box is a web component wrapper around the "CUSTOM ANIMATED CHECKBOXES" codepen by Sara Soueidan | [GitHub](https://github.com/bahrus/scratch-box)
 
 ## Viewing Demos Locally
 
