@@ -89,7 +89,7 @@ Because all spawns are async, defining 10 elements that extend `el-maker` only i
 
 ### Example:  scratch-box
 
-[scratch-box](https://github.com/bahrus/scratch-box) is a full-blown visual web component, with a static HTML definition for instant SSR display, and JSON definition that makes use of all the features provided br *el-maker*.  Once again, no JS code, only HTML/JSON.  It also demonstrates a viable SSR solution, where users can instantly start selecting values with a decent UI, and the selections transfer to the web component during hydration.
+[scratch-box](https://github.com/bahrus/scratch-box) is a full-blown visual form associated custom element web component, with a static HTML definition for instant SSR display, and JSON definition that makes use of all the features provided by *el-maker*.  Once again, no JS code, only HTML/JSON.  It also demonstrates a viable SSR solution, where users can instantly start selecting values with a decent UI, and the selections transfer to the web component during hydration.
 
 ## Elements Extending ElementMaker
 
