@@ -16,3 +16,6 @@
 [submodule "templ-maker"]
 	path = templ-maker
 	url = https://github.com/bahrus/templ-maker.git
+[submodule "id-referencer"]
+	path = id-referencer
+	url = https://github.com/bahrus/id-referencer.git
