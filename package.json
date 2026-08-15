@@ -27,8 +27,8 @@
     "update": "ncu -u && npm install"
   },
   "dependencies": {
-    "assign-gingerly": "0.0.75",
-    "roundabout-lib": "0.0.30"
+    "assign-gingerly": "0.0.79",
+    "roundabout-lib": "0.0.31"
   },
   "devDependencies": {
     "spa-ssi": "0.0.27",
