@@ -18,6 +18,8 @@ This enables fully declarative element definition from JSON — including from [
 
 ## Usage
 
+Please follow these [step-by-step instructions for creating a custom element with el-maker](https://github.com/bahrus/types/blob/baseline/NewCustomElementFeature.md)  
+
 ### From JavaScript
 
 ```js
