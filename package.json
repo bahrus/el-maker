@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "assign-gingerly": "0.0.81",
-    "roundabout-lib": "0.0.32"
+    "roundabout-lib": "0.0.33"
   },
   "devDependencies": {
     "spa-ssi": "0.0.27",
