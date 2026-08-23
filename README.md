@@ -84,6 +84,7 @@ Because all spawns are async, defining 10 elements that extend `el-maker` only i
 | roundabout   | [roundabout-lib](https://www.npmjs.com/package/roundabout-lib) | Reactive view-model binding with template rendering and computed property orchestration | [GitHub](https://github.com/bahrus/roundabout-lib) |
 | templateMaker | [templ-maker](https://www.npmjs.com/package/templ-maker) | Extracts a DOM fragment into a reusable template and clones it per instance (works with cede scripts) | [GitHub](https://github.com/bahrus/templ-maker) |
 | fontMgr       | [font-face-feature](https://www.npmjs.com/package/font-face-feature) | Installs global fonts | [GitHub](https://github.com/bahrus/font-face-feature)
+| swipeDismiss  | [swipe-dismiss](https://www.npmjs.com/package/swipe-dismiss) | Adds swipe-to-dismiss gesture handling with progress / commit / cancel callbacks | [GitHub](https://github.com/bahrus/swipe-dismiss)
 
 ### Example: time-ticker
 

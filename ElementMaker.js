@@ -86,6 +86,11 @@ export class ElementMaker extends HTMLElement {
                 .then(m => m.TemplateMaker),
             callbackForwarding: ['connectedCallback'],
         },
+        swipeDismiss: {
+            fallbackSpawn: () => import('./swipe-dismiss/SwipeDismissFeature.js')
+                .then(m => m.SwipeDismissFeature),
+            callbackForwarding: ['connectedCallback', 'disconnectedCallback'],
+        },
     };
 
     static featuresConfig = {
