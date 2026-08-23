@@ -19,3 +19,6 @@
 [submodule "id-referencer"]
 	path = id-referencer
 	url = https://github.com/bahrus/id-referencer.git
+[submodule "swipe-dismiss"]
+	path = swipe-dismiss
+	url = https://github.com/bahrus/swipe-dismiss.git
