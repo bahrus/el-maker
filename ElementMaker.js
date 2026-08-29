@@ -91,6 +91,11 @@ export class ElementMaker extends HTMLElement {
                 .then(m => m.SwipeDismissFeature),
             callbackForwarding: ['connectedCallback', 'disconnectedCallback'],
         },
+        idRefs: {
+            fallbackSpawn: () => import('./id-referencer/IdRefs.js')
+                .then(m => m.IdRefs),
+            callbackForwarding: ['connectedCallback', 'disconnectedCallback'],
+        },
     };
 
     static featuresConfig = {
