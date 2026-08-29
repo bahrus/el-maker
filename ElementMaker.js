@@ -96,6 +96,11 @@ export class ElementMaker extends HTMLElement {
                 .then(m => m.IdRefs),
             callbackForwarding: ['connectedCallback', 'disconnectedCallback'],
         },
+        focusTrap: {
+            fallbackSpawn: () => import('./focus-trap-feature/FocusTrapFeature.js')
+                .then(m => m.FocusTrapFeature),
+            callbackForwarding: ['connectedCallback'],
+        },
     };
 
     static featuresConfig = {

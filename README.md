@@ -85,6 +85,8 @@ Because all spawns are async, defining 10 elements that extend `el-maker` only i
 | templateMaker | [templ-maker](https://www.npmjs.com/package/templ-maker) | Extracts a DOM fragment into a reusable template and clones it per instance (works with cede scripts) | [GitHub](https://github.com/bahrus/templ-maker) |
 | fontMgr       | [font-face-feature](https://www.npmjs.com/package/font-face-feature) | Installs global fonts | [GitHub](https://github.com/bahrus/font-face-feature)
 | swipeDismiss  | [swipe-dismiss](https://www.npmjs.com/package/swipe-dismiss) | Adds swipe-to-dismiss gesture handling with progress / commit / cancel callbacks | [GitHub](https://github.com/bahrus/swipe-dismiss)
+| idRefs        | [id-referencer](https://www.npmjs.com/package/id-referencer) | Resolves a list of element ids to live elements against the host's root node, watching the DOM until every id appears | [GitHub](https://github.com/bahrus/id-referencer)
+| focusTrap     | [focus-trap-feature](https://github.com/bahrus/focus-trap-feature) | Cycles <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> focus within the host element (shadow-DOM aware) | [GitHub](https://github.com/bahrus/focus-trap-feature)
 
 ### Example: time-ticker
 
@@ -93,6 +95,27 @@ Because all spawns are async, defining 10 elements that extend `el-maker` only i
 ### Example:  scratch-box
 
 [scratch-box](https://github.com/bahrus/scratch-box) is a full-blown visual form associated custom element web component, with a static HTML definition for instant SSR display, and JSON definition that makes use of all the features provided by *el-maker*.  Once again, no JS code, only HTML/JSON.  It also demonstrates a viable SSR solution, where users can instantly start selecting values with a decent UI, and the selections transfer to the web component during hydration.
+
+### Feature: idRefs
+
+`idRefs` (spawns [`IdRefs`](id-referencer/IdRefs.js)) turns a `string[]` of element ids into an ordered list of live `Element` references resolved against the host's root node (shadow root or `document`). If any id is missing when the list is set, a `MutationObserver` stays armed on the root node until it appears; each DOM-mutation-driven pass that changes the resolved set dispatches an event on the host (`id-referencer:resolved` by default, overridable via `customData.eventType`). The feature deliberately does **not** read a host attribute — the host hands it an already-split id list through the `searchFor` setter, keeping attribute → `string[]` parsing in the host's own reactive graph.
+
+```js
+el.idRefs.searchFor = ['sel1', 'sel2'];   // (re)point at these ids
+el.idRefs.elements;                        // Element[] — resolved, still-connected, in order
+el.idRefs.complete;                        // boolean — true once every id resolved
+el.addEventListener('id-referencer:resolved', e => {
+    const { ids, elements } = e.detail;
+});
+```
+
+Lifecycle: `connectedCallback` re-arms the observer if ids are still outstanding; `disconnectedCallback` disconnects it.
+
+### Feature: focusTrap
+
+`focusTrap` (spawns [`FocusTrapFeature`](focus-trap-feature/FocusTrapFeature.js)) keeps keyboard focus inside the host element. It listens for `keydown` on the host, and on <kbd>Tab</kbd> it collects the host's focusable descendants (`a[href]`, non-disabled `button` / `input` / `select` / `textarea`, and `[tabindex]` other than `-1`). When focus is on the last focusable element and <kbd>Tab</kbd> is pressed — or on the first element with <kbd>Shift</kbd>+<kbd>Tab</kbd> — it calls `preventDefault()` and wraps focus to the other end. Active-element detection reads from the host's root node, so it works inside a shadow root.
+
+The feature needs no configuration or consumption API; selecting it (with `connectedCallback` forwarding) is enough to wire the listener.
 
 ## Elements Extending ElementMaker
 
