@@ -22,3 +22,6 @@
 [submodule "swipe-dismiss"]
 	path = swipe-dismiss
 	url = https://github.com/bahrus/swipe-dismiss.git
+[submodule "focus-trap-feature"]
+	path = focus-trap-feature
+	url = https://github.com/bahrus/focus-trap-feature.git
