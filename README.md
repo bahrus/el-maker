@@ -123,6 +123,8 @@ The feature needs no configuration or consumption API; selecting it (with `conne
 |---------|-------------|--------|
 | [time-ticker](https://www.npmjs.com/package/time-ticker) | Web component that fires events periodically | [GitHub](https://github.com/bahrus/time-ticker) |
 | [scratch-box](https://www.npmjs.com/package/scratch-box) | scratch-box is a web component wrapper around the "CUSTOM ANIMATED CHECKBOXES" codepen by Sara Soueidan | [GitHub](https://github.com/bahrus/scratch-box)
+| [side-burger](https://www.npmjs.com/package/side-burger) | Side drawer component with menu; integrates many features, including swipeDismiss and focusTrap | [GitHub](https://github.com/bahrus/side-burger)
+| [up-down-counter](https://www.npmjs.com/package/up-down-counter) | Counter component demonstrating `toLocaleString()` number formatting | [GitHub](https://github.com/bahrus/up-down-counter)
 
 ## Viewing Demos Locally
 
