@@ -101,6 +101,11 @@ export class ElementMaker extends HTMLElement {
                 .then(m => m.FocusTrapFeature),
             callbackForwarding: ['connectedCallback'],
         },
+        h2oTable: {
+            fallbackSpawn: () => import('./h2o-table/H2OTable.js')
+                .then(m => m.H2OTable),
+            callbackForwarding: ['connectedCallback'],
+        }
     };
 
     static featuresConfig = {
