@@ -25,3 +25,6 @@
 [submodule "focus-trap-feature"]
 	path = focus-trap-feature
 	url = https://github.com/bahrus/focus-trap-feature.git
+[submodule "h2o-table"]
+	path = h2o-table
+	url = https://github.com/bahrus/h2o-table.git
