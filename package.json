@@ -17,7 +17,8 @@
   "exports": {
     ".": "./def.js",
     "./def.js": "./def.js",
-    "./ElementMaker.js": "./ElementMaker.js"
+    "./ElementMaker.js": "./ElementMaker.js",
+    "./h2o-table/H2OTable.js": "./h2o-table/H2OTable.js"
   },
   "scripts": {
     "build": "node emc.mjs > emc.json && node ⏻.mjs > ⏻.json",
